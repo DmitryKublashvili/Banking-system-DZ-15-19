@@ -1,0 +1,47 @@
+﻿<Page x:Class="DZ_13_Banking_system.PageForLegalEntity"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DZ_13_Banking_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="960"
+      Title="PageForLegalEntity">
+
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" 
+                   FontSize="23" Margin="336,30,0,0" 
+                   TextWrapping="Wrap" Text="LEGAL ENTITYS SECTOR" VerticalAlignment="Top" Width="273" FontFamily="Times New Roman"/>
+
+
+        <Button x:Name="btn_LegalEntityRegistration" 
+                Content="LEGAL ENTITY &#xA;REGISTRATION" 
+            Command="{Binding LegalEntityRegistrationComand}" BorderThickness="0"
+            HorizontalAlignment="Left" 
+            Margin="478,192,0,0" FontSize="16"
+            VerticalAlignment="Top" 
+            Width="296" Height="102" FontFamily="Artifakt Element"  >
+
+            <Button.Background>
+                <SolidColorBrush Color="#FFB4FAB0"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="btn_OpenClientInfoEditPage" 
+                Content="CLIENT INFO PAGE" 
+            Command="{Binding OpenLegalEntityInfoEditPageComand}"
+            HorizontalAlignment="Left" 
+            Margin="194,192,0,0" FontSize="16"
+            VerticalAlignment="Top" BorderThickness="0"
+            Width="284" Height="102" FontFamily="Artifakt Element"  >
+            <Button.Background>
+                <SolidColorBrush Color="#FFFAC9BE"/>
+            </Button.Background>
+        </Button>
+
+
+
+
+
+    </Grid>
+</Page>

@@ -1,0 +1,136 @@
+﻿<Window x:Class="DZ_13_Banking_system.ClientRegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DZ_13_Banking_system"
+        mc:Ignorable="d" ResizeMode="NoResize"
+        Title="Individual Client Registration" Height="540" Width="950">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="123*"/>
+            <ColumnDefinition Width="137*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72.8"/>
+            <RowDefinition Height="43.2"/>
+            <RowDefinition Height="44.8"/>
+            <RowDefinition Height="49.6"/>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="40.8"/>
+            <RowDefinition Height="51.2"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Image Margin="-37,-29,-93,0.4" 
+               Source="Screenshot_3.png" 
+               Stretch="Fill" Grid.ColumnSpan="3" Grid.RowSpan="8">
+            <Image.OpacityMask>
+                <SolidColorBrush Color="White" Opacity="0.5"/>
+            </Image.OpacityMask>
+        </Image>
+
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="201.6,28,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="INDIVIDUAL CLIENT REGISTRATION FORM" 
+                   VerticalAlignment="Top" Width="406" FontSize="18" Height="21" Grid.Column="1" FontFamily="Times New Roman" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10.6,10.2,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Type of client" VerticalAlignment="Top" Height="20" Width="90" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <ComboBox x:Name="cb_ClientType" HorizontalAlignment="Left" 
+                  Margin="115.6,8.2,0,0" 
+                  Grid.Row="1" FontSize="14"
+                  VerticalAlignment="Top" 
+                  Width="213" Height="22" Grid.Column="1" FontFamily="Artifakt Element">
+            <TextBlock>Individual</TextBlock>
+            <TextBlock>VIP Individual</TextBlock>
+        </ComboBox>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="65,12,0,0" Grid.Row="2" 
+                   TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Height="20" Width="41" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_Name" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="128,11,0,0" 
+                 Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="47,14.2,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Surname" VerticalAlignment="Top" Height="20" Width="59" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_Surname" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="128,13.2,0,0" Grid.Row="3" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="218.6,11.6,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" Height="20" Width="38" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_Age" BorderThickness="0.5"
+                 IsReadOnly="True"
+                 HorizontalAlignment="Left" Height="23" Margin="256.6,10.6,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="69" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="15.6,12.2,0,0" Grid.Row="3" TextWrapping="Wrap" Text="Date of birth" VerticalAlignment="Top" Height="20" Width="85" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_BirthDate" BorderThickness="0.5"
+                 IsReadOnly="True"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="115.6,11.2,0,0" 
+                 Grid.Row="3" TextWrapping="Wrap" 
+                 VerticalAlignment="Top" Width="213" FontSize="14" Text="           select on the calendar" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <Calendar HorizontalAlignment="Left" BorderThickness="0"
+                  SelectedDate="{Binding SelectedDate}"
+                  Margin="0.6,10.6,0,0" 
+                  Grid.Row="4" 
+                  VerticalAlignment="Top" 
+                  Height="173" Width="203" 
+                  Grid.RowSpan="4" Grid.Column="1"/>
+
+        <StackPanel x:Name="rb_GenderSelect" 
+                    Grid.Row="5" Grid.Column="1" 
+                    VerticalAlignment="Bottom" HorizontalAlignment="Left"
+                    Height="60"  Width="100" Margin="256.6,0,0,21.4" Grid.RowSpan="2"  >
+            <RadioButton x:Name="rb_Male" 
+                         FontSize="14" 
+                         GroupName="Clients" Content="Male" 
+                         Height="20" Margin="5" HorizontalAlignment="Left" FontFamily="Artifakt Element" 
+                          />
+            <RadioButton x:Name="rb_Female" 
+                         FontSize="14" GroupName="Clients" 
+                         Content="Female" Margin="5" Height="20" FontFamily="Artifakt Element"  />
+        </StackPanel>
+        <TextBlock HorizontalAlignment="Left" Margin="224.6,32.6,0,0" Grid.Row="5" TextWrapping="Wrap" Text="Sex" VerticalAlignment="Top" Height="20" Width="27" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element" Grid.RowSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="49,11.6,0,0" Grid.Row="4" TextWrapping="Wrap" Text="Country" VerticalAlignment="Top" Height="20" Width="57" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_Country" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="128,10.6,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="73,12.6,0,0" Grid.Row="5" TextWrapping="Wrap" Text="City" VerticalAlignment="Top" Height="20" Width="35" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_City" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="128,9.6,0,0" Grid.Row="5" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="62,17.8,0,0" Grid.Row="6" TextWrapping="Wrap" Text="Street" VerticalAlignment="Top" Height="20" Width="43" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_Street" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="127,17.8,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="203" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="60,16.6,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="62" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"><Run Text="House "/><Run Text="№"/></TextBlock>
+        <TextBox x:Name="tb_HouseNum" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="127,14.6,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="194,16.6,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="73" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"><Run Text="Apartm. "/><Run Text="№"/></TextBlock>
+        <TextBox x:Name="tb_ApartmentNum" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="272,14.6,0,0" Grid.Row="7" TextWrapping="Wrap" VerticalAlignment="Top" Width="58" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="31.6,13,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="18" FontSize="14" Text="ID" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_ID" BorderThickness="0.5"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="115.6,11,0,0" 
+                 Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" FontSize="12" Grid.Column="1" FontFamily="Artifakt Element"/>
+        <Button x:Name="btn_Registration" Content="DONE" 
+                Command="{Binding RegistrationCompleteComand}" 
+                HorizontalAlignment="Left" BorderThickness="0"
+                Margin="331.6,67.6,0,0" 
+                Grid.Row="7" VerticalAlignment="Top" 
+                Width="136" Height="39" FontSize="16" 
+                Grid.Column="1" FontFamily="Artifakt Element" Background="#FFBCFAFD" Grid.ColumnSpan="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="42,12.2,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="20" Width="64" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"><Run Text="Passport "/><Run Text="№"/></TextBlock>
+        <TextBox x:Name="tb_PassportNum" 
+                 HorizontalAlignment="Left" 
+                 Height="23" BorderThickness="0.5"
+                 Margin="127,10.2,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" FontSize="14" Grid.Column="2" FontFamily="Artifakt Element"/>
+        <Button x:Name="btn_AutoID" 
+                Content="auto" Command="{Binding AutoIDComand}"
+                HorizontalAlignment="Left" 
+                Margin="54.6,11,0,0" BorderThickness="0.5"
+                VerticalAlignment="Top" Width="46" Grid.Row="2" Grid.Column="1" Height="22" Background="#FFE3E6E7" FontFamily="Artifakt Element"/>
+
+    </Grid>
+</Window>

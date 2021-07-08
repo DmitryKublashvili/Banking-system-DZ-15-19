@@ -1,0 +1,60 @@
+﻿<Page x:Class="DZ_13_Banking_system.PageForIndividuals"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DZ_13_Banking_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="960"
+      Title="PageForIndividuals">
+
+    <Grid>
+        <Button x:Name="btn_IndividualRegistration" Content="INDIVIDUAL&#xD;&#xA;REGISTRATION" 
+                Command="{Binding IndividualClientRegistrationComand}" BorderThickness="0"
+                HorizontalAlignment="Left" 
+                Margin="621,195,0,0" FontSize="16"
+                VerticalAlignment="Top" 
+                Width="272" Height="101" Foreground="Black" FontFamily="Artifakt Element"  >
+
+            <Button.Background>
+                <SolidColorBrush Color="#FFB4FAB0"/>
+            </Button.Background>
+
+
+        </Button>
+        <Button x:Name="btn_DepositOpen" 
+                Content="DEPOSIT OPEN" BorderThickness="0"
+            Command="{Binding DepositOpenComand}"
+            HorizontalAlignment="Left" 
+            Margin="341,195,0,0" FontSize="16"
+            VerticalAlignment="Top" 
+            Width="280" Height="101" Foreground="Black" FontFamily="Artifakt Element" >
+
+            <Button.Background>
+                <SolidColorBrush Color="#FF9FF6FD"/>
+            </Button.Background>
+
+        </Button>
+        <Button x:Name="btn_OpenClientInfoEditPage" 
+                Content="CLIENT INFO PAGE" 
+            Command="{Binding OpenClientInfoEditPageComand}"
+            HorizontalAlignment="Left" 
+            Margin="78,195,0,0" FontSize="16"
+            VerticalAlignment="Top" BorderThickness="0"
+            Width="263" Height="101" FontFamily="Artifakt Element" Foreground="Black"       >
+
+
+            <Button.Background>
+                <SolidColorBrush Color="#FFFAC9BE"/>
+            </Button.Background>
+        </Button>
+        <TextBlock HorizontalAlignment="Left" 
+                   FontSize="23" Margin="295,29,0,0" TextWrapping="Wrap" Text="INDIVIDUAL CLIENTS SECTOR" 
+                   VerticalAlignment="Top" Width="355" FontFamily="Times New Roman"/>
+
+
+
+
+
+    </Grid>
+</Page>

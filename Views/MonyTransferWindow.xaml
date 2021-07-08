@@ -1,0 +1,99 @@
+﻿<Window x:Class="DZ_13_Banking_system.MonyTransferWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DZ_13_Banking_system"
+        mc:Ignorable="d" ResizeMode="NoResize"
+        Title="MonyTransferWindow" Height="350" Width="900">
+    <Grid Margin="0,0,-6.8,-0.2">
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF9B819B" Offset="1"/>
+                <GradientStop Color="#FFE4D0E4"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="54*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="250"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tb_MonySender" 
+                 FontSize="14" IsReadOnly="True"
+                 HorizontalAlignment="Left" Height="23" Margin="105,37.6,0,0" 
+                 TextWrapping="Wrap" Text="Select the sender" 
+                 VerticalAlignment="Top" Width="314" Background="#FFF3EECE" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="tb_MonyReciver" FontSize="14" IsReadOnly="True"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="105,77.6,0,0" 
+                 TextWrapping="Wrap" Text="Select the reciver" 
+                 VerticalAlignment="Top" Width="314" Background="#FFF3EECE" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="93,150.6,0,0" TextWrapping="Wrap" Text="Transfer Sum" VerticalAlignment="Top" Height="23" Width="87" FontSize="14" Grid.Column="1" Grid.Row="1"/>
+        <TextBox x:Name="tb_amountTransferMony" FontSize="14"
+                 HorizontalAlignment="Left" Height="23" Margin="194,150.6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="131" Background="#FFF3EECE" Grid.Column="1" Grid.Row="1"/>
+        <Button x:Name="btn_SendMony" 
+                Content="SEND" Command="{Binding SendMonyComand}"
+                HorizontalAlignment="Left" Margin="336,146.6,0,0" VerticalAlignment="Top" Width="83" Height="32" FontSize="14" FontWeight="Bold" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="20,30,0,0" TextWrapping="Wrap" Text="MONEY TRANSFER FORM" VerticalAlignment="Top" Height="22" Width="237" FontSize="16" FontWeight="SemiBold" FontFamily="Meiryo" Grid.Column="1" Grid.RowSpan="2"/>
+
+        <DataGrid x:Name="dg_AllClientsList" 
+                  ItemsSource="{Binding AllClients}"
+                  SelectedItem="{Binding SelectedClient}"
+                  HorizontalAlignment="Left" AutoGenerateColumns="False"
+                  Height="181" Margin="464,35.6,0,0" IsReadOnly="True"
+                  VerticalAlignment="Top" Width="378" Grid.Row="1" Background="White" Grid.Column="1">
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns >
+
+                <DataGridTextColumn Header="Accaunt number" Binding="{Binding Path=ClientAccount.accountNumber}" Width="3*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Setters>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style.Setters>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="3*"></DataGridTextColumn>
+                <DataGridTextColumn Header="Balance" Binding="{Binding Path=ClientAccount.Balans, StringFormat={}{0:f2}}" Width="3*">
+
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Setters>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style.Setters>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <StackPanel x:Name="rb_ClientSelect"
+                    Grid.Row="1" VerticalAlignment="Bottom"
+                    Height="63" HorizontalAlignment="Left" Width="80" Margin="20,0,0,148.8" Grid.Column="1"  >
+            <RadioButton x:Name="rb_Sender" FontSize="14" 
+                         GroupName="Clients" Content="Sender" IsChecked="True" 
+                         Height="41" Margin="0" HorizontalAlignment="Left" Width="70" />
+            <RadioButton x:Name="rb_Reciver" HorizontalAlignment="Left"
+                         FontSize="14" Width="70"
+                         GroupName="Clients" 
+                         Content="Reciver" Margin="0" Height="21"  />
+        </StackPanel>
+        <TextBox HorizontalAlignment="Left" Text="{Binding QuicSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Height="23" Margin="555,9.6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="117" FontSize="14" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="464,9.6,0,0" TextWrapping="Wrap" Text="Quick search" VerticalAlignment="Top" Width="86" FontSize="14" Grid.Column="1" Height="19" Grid.Row="1"/>
+
+    </Grid>
+</Window>

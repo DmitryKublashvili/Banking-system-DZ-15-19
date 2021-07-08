@@ -1,0 +1,142 @@
+﻿<Page x:Class="DZ_13_Banking_system.CreditOpenPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DZ_13_Banking_system"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="930"
+      Title="CreditOpenPage">
+
+    <Grid Margin="0,0,-6,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="281*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="54*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="290*"/>
+        </Grid.RowDefinitions>
+        <TextBox x:Name="tb_ClientName" 
+                 FontSize="14" IsReadOnly="True"
+                 HorizontalAlignment="Left" Height="23" Margin="115.2,20.2,0,0" 
+                 TextWrapping="Wrap" Text="Select the client" 
+                 VerticalAlignment="Top" Width="264" BorderThickness="0.5"
+                 Background="White" Grid.Column="1" Grid.Row="1" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="408.2,20.2,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="23" Width="80" FontSize="14" Grid.Column="1" Grid.Row="1" FontFamily="Artifakt Element"><Run Text="Contract "/><Run Text="№"/></TextBlock>
+        <TextBox x:Name="tb_ContractNum" FontSize="14"
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="499.2,20.2,0,0" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" 
+                 Width="166" BorderThickness="0.5"
+                 Background="White" Grid.Column="1" Grid.Row="1" FontFamily="Artifakt Element"/>
+        <Button x:Name="btn_Done" 
+                Content="DONE" BorderThickness="0"
+                Command="{Binding CreateCreditComand}"
+                HorizontalAlignment="Left" Margin="499.2,82,0,0" 
+                VerticalAlignment="Top" Width="114" Height="42" FontSize="16" 
+                Grid.Column="1" Grid.Row="4" FontFamily="Artifakt Element" Background="#FFB9F3F9"/>
+        <TextBlock HorizontalAlignment="Left" 
+                   Margin="265.2,31,0,0" 
+                   TextWrapping="Wrap" 
+                   Text="CREDIT OPEN FORM" 
+                   VerticalAlignment="Top" 
+                   Height="22" Width="223" FontSize="22" 
+                   FontFamily="Times New Roman" Grid.Column="1"/>
+
+        <DataGrid x:Name="dg_AllClientsList" 
+                  ItemsSource="{Binding AllClients}"
+                  SelectedItem="{Binding SelectedClient}"
+                  GridLinesVisibility="None" FontSize="13"
+                  HorizontalAlignment="Left" AutoGenerateColumns="False"
+                  Height="236" Margin="12.2,6.6,0,0" IsReadOnly="True"
+                  VerticalAlignment="Top" Width="367" Grid.Row="3" 
+                  BorderThickness="0"
+                  Background="Transparent" 
+                  RowBackground="Transparent"
+                  Grid.Column="1" Grid.RowSpan="2" 
+                  FontFamily="Artifakt Element">
+
+            <DataGrid.Resources>
+                <Style BasedOn="{StaticResource {x:Type DataGridColumnHeader}}" TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                    <Setter Property="Height" Value="30" />
+                    <Setter Property="Background" Value="Transparent" />
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns >
+
+                <DataGridTextColumn Header="Accaunt number" Binding="{Binding Path=ClientAccount.AccountNumber}" Width="3*">
+                    <DataGridTextColumn.CellStyle>
+                        <Style TargetType="DataGridCell">
+                            <Style.Setters>
+                                <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                            </Style.Setters>
+                        </Style>
+                    </DataGridTextColumn.CellStyle>
+
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Name" Binding="{Binding Path=Name}" Width="3*"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <TextBox HorizontalAlignment="Left" 
+                 Text="{Binding QuicSearchText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Height="23" Margin="115.2,20.8,0,0" Grid.Row="2" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" BorderThickness="0.5"
+                 Width="130" FontSize="14" Grid.Column="1" FontFamily="Artifakt Element" Background="White">
+
+        </TextBox>
+        <TextBlock HorizontalAlignment="Left" Margin="12.2,20.8,0,0" Grid.Row="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" FontSize="14" Grid.Column="1" Height="19" FontFamily="Artifakt Element"><Run Text="Quick search"/><Run Text="*"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="18.2,19.2,0,0" TextWrapping="Wrap" Text="Client name" VerticalAlignment="Top" Height="23" Width="82" FontSize="14" Grid.Column="1" Grid.Row="1" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="425.2,20.8,0,0" TextWrapping="Wrap" Text="Sum" VerticalAlignment="Top" Height="23" Width="51" FontSize="14" Grid.Column="1" Grid.Row="2" FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_CreditSum" FontSize="14"
+            HorizontalAlignment="Left" 
+                 Height="23" Margin="499.2,20.8,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="166" BorderThickness="0.5"
+                 Background="White" Grid.Column="1" Grid.Row="2" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="424.2,9.6,0,0" TextWrapping="Wrap" Text="Interest" 
+                   VerticalAlignment="Top" Height="23" Width="52" 
+                   FontSize="14" Grid.Column="1" Grid.Row="3" 
+                   FontFamily="Artifakt Element"/>
+        <TextBox x:Name="tb_CreditInterest" FontSize="14"
+            HorizontalAlignment="Left" IsReadOnly="True"
+                 Height="23" Margin="499.2,9.6,0,0" 
+                 TextWrapping="Wrap" VerticalAlignment="Top" 
+                 Width="83" BorderThickness="0.5"
+                 Background="White" 
+                 Grid.Column="1" Grid.Row="3" FontFamily="Artifakt Element"/>
+        <TextBlock HorizontalAlignment="Left" Margin="424.2,11.564,0,0" TextWrapping="Wrap" Text="Period" VerticalAlignment="Top" Height="23" Width="52" FontSize="14" Grid.Column="1" Grid.Row="4" FontFamily="Artifakt Element"/>
+        <ComboBox x:Name="cb_CreditPeriod" Grid.Column="1" HorizontalAlignment="Left" Margin="499.2,12.564,0,0" Grid.Row="4" VerticalAlignment="Top" Width="83" Height="23" FontFamily="Artifakt Element">
+            <ComboBox.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                    <GradientStop Color="#FFBFF6F9" Offset="1"/>
+                </LinearGradientBrush>
+            </ComboBox.Background>
+            <TextBlock>12</TextBlock>
+            <TextBlock>24</TextBlock>
+            <TextBlock>36</TextBlock>
+        </ComboBox>
+        <Button Content="auto" 
+                Command="{Binding AutoFillContractNumComand}"
+                BorderThickness="0"
+                Grid.Column="1" HorizontalAlignment="Left" 
+                Margin="670.2,22.2,0,0" Grid.Row="1" 
+                VerticalAlignment="Top" Width="43" Height="20" Background="#FFB9F3F9" FontFamily="Artifakt Element"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="12.2,214,0,0" Grid.Row="4" TextWrapping="Wrap" VerticalAlignment="Top" Width="434" FontFamily="Artifakt Element"><Run Text="*"/><Run Text="A quick search is performed by current account number and customer name at the same time. You can enter any of these parameters."/></TextBlock>
+        <TextBlock Grid.Column="1" 
+                   HorizontalAlignment="Left" 
+                   Margin="587.2,13.6,0,0" Grid.Row="3" 
+                   TextWrapping="Wrap" VerticalAlignment="Top" 
+                   Width="133" FontFamily="Artifakt Element"><Run Text="("/><Run Text="it's automatically set"/><Run Text=")"/></TextBlock>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="54.2,62,0,0" TextWrapping="Wrap" Text="(loans are not granted to clients with a negative balance of current account and who already have loans)" VerticalAlignment="Top" Width="666" FontFamily="Times New Roman" FontSize="16" Grid.RowSpan="2"/>
+
+    </Grid>
+</Page>
