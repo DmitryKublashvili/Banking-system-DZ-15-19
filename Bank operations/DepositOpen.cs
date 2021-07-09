@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
     class DepositOpen
     {

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml

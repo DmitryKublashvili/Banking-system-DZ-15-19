@@ -9,9 +9,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
-    class IndividualClientInfo : INotifyPropertyChanged
+    public class IndividualClientInfo : INotifyPropertyChanged
     {
         /// <summary>
         /// Добавление новой транзакции в главный операционный журнал 

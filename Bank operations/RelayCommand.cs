@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
-    class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
 
         private Action<object> execute;

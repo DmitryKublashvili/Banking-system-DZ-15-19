@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
-    class MonyTransfer : INotifyPropertyChanged
+    public class MonyTransfer : INotifyPropertyChanged
     {
         /// <summary>
         /// Добавление новой транзакции в главный операционный журнал 
@@ -76,6 +76,11 @@ namespace DZ_13_Banking_system
         /// Получатель перевода
         /// </summary>
         public static Client Reciver { get; set; }
+
+        /// <summary>
+        /// Сумма перевода
+        /// </summary>
+        public decimal transferSum = 0;
 
         private string quicSearchText;
         /// <summary>
@@ -195,43 +200,55 @@ namespace DZ_13_Banking_system
                 return sendMonyComand ??
                   (sendMonyComand = new RelayCommand(obj =>
                   {
-                      if (Sender == null) { MessageBox.Show("Please, select the sender!"); return; }
-
-                      if (Reciver == null) { MessageBox.Show("Please, select the reciver!"); return; }
-
-                      if (Sender == Reciver) { MessageBox.Show("A transfer within one account is not possible!"); return; }
-
-                      if (!Sender.ClientAccount.IsOpen) { MessageBox.Show($"{Sender.Name} account is closed. The transaction is impossible"); return; }
-                      
-                      if (!Reciver.ClientAccount.IsOpen) { MessageBox.Show($"{Reciver.Name} account is closed. The transaction is impossible"); return; }
-
-                      decimal sum;  // переменна для хранения суммы перевода
-
-                      if (String.IsNullOrWhiteSpace(MoneyTransferPage.tb_amountTransferMony.Text) || !decimal.TryParse(MoneyTransferPage.tb_amountTransferMony.Text, out sum))
+                      if (Check())
                       {
-                          MessageBox.Show("Please, enter correct sum to transfer!");
-                          return;
+                          SendMonyAndClearForm(transferSum);
                       }
-                      else
-                      {
-                          if (sum > Sender.ClientAccount.Balans)
-                          {
-                              if (MessageBox.Show($"Insufficient funds in the account. \nThe amount of the current sender's account is {Sender.ClientAccount.Balans}.\n" +
-                                  $"Confirming the debit of funds with the formation of arrears?\nSender: {Sender.Name} \n" +
-                                  $"Reciver: {Reciver.Name}\nSum: {sum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
-                               return; 
-                          }
-                          else
-                          {
-                              if(MessageBox.Show($"Confirm the transfer of funds:\nSender: {Sender.Name} \n" +
-                                  $"Reciver: {Reciver.Name} \nSum: {sum} ", "Question", MessageBoxButton.YesNo)== MessageBoxResult.No)
-                              return;
-                          }
-                          SendMonyAndClearForm(sum);
-                      }
+                      else return;
+
                   }));
             }
         }
+
+        /// <summary>
+        /// Проверяет корректность заполнения формы
+        /// </summary>
+        /// <returns></returns>
+        private bool Check()
+        {
+            if (Sender == null) { MessageBox.Show("Please, select the sender!"); return false; }
+
+            if (Reciver == null) { MessageBox.Show("Please, select the reciver!"); return false; }
+
+            if (Sender == Reciver) { MessageBox.Show("A transfer within one account is not possible!"); return false; }
+
+            if (!Sender.ClientAccount.IsOpen) { MessageBox.Show($"{Sender.Name} account is closed. The transaction is impossible"); return false; }
+
+            if (!Reciver.ClientAccount.IsOpen) { MessageBox.Show($"{Reciver.Name} account is closed. The transaction is impossible"); return false; }
+
+            if (String.IsNullOrWhiteSpace(MoneyTransferPage.tb_amountTransferMony.Text) || !decimal.TryParse(MoneyTransferPage.tb_amountTransferMony.Text, out transferSum))
+            {
+                MessageBox.Show("Please, enter correct sum to transfer!");
+                return false;
+            }
+
+            if (transferSum > Sender.ClientAccount.Balans)
+            {
+                if (MessageBox.Show($"Insufficient funds in the account. \nThe amount of the current sender's account is {Sender.ClientAccount.Balans}.\n" +
+                    $"Confirming the debit of funds with the formation of arrears?\nSender: {Sender.Name} \n" +
+                    $"Reciver: {Reciver.Name}\nSum: {transferSum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return false;
+            }
+            else
+            {
+                if (MessageBox.Show($"Confirm the transfer of funds:\nSender: {Sender.Name} \n" +
+                    $"Reciver: {Reciver.Name} \nSum: {transferSum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
+                    return false;
+            }
+
+            return true;
+        }
+
 
         /// <summary>
         /// Отправляет денежный перевод с оформлением записей в историях транзакций

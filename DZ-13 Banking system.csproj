@@ -63,7 +63,6 @@
       <DependentUpon>ClientRegistrationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bank operations\ClientRegistration.cs" />
-    <Compile Include="Bank entities\Credit.cs" />
     <Compile Include="Bank operations\CreditOpen.cs" />
     <Compile Include="Views\CreditOpenPage.xaml.cs">
       <DependentUpon>CreditOpenPage.xaml</DependentUpon>
@@ -72,7 +71,6 @@
       <DependentUpon>IndividualClientInfoEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bank operations\DataContextForMainWindow.cs" />
-    <Compile Include="Bank entities\Deposit.cs" />
     <Compile Include="Bank operations\DepositOpen.cs" />
     <Compile Include="Views\DepositOpenWindow.xaml.cs">
       <DependentUpon>DepositOpenWindow.xaml</DependentUpon>
@@ -105,14 +103,12 @@
     <Compile Include="Views\TestSystemPage.xaml.cs">
       <DependentUpon>TestSystemPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Bank entities\TransactionInfo.cs" />
     <Compile Include="Bank operations\MonyTransfer.cs" />
     <Compile Include="Views\MonyTransferWindow.xaml.cs">
       <DependentUpon>MonyTransferWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Bank operations\RelayCommand.cs" />
     <Compile Include="Bank operations\TestBankingSystemCreation.cs" />
-    <Compile Include="Bank entities\VIP_Individual.cs" />
     <Page Include="Views\OperationJornalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -153,16 +149,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Bank entities\Account.cs" />
-    <Compile Include="Bank entities\Address.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bank entities\BankSistem.cs" />
-    <Compile Include="Bank entities\Client.cs" />
-    <Compile Include="Bank entities\Individual.cs" />
-    <Compile Include="Bank entities\LegalEntity.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -220,5 +210,12 @@
   <ItemGroup>
     <Resource Include="Views\Screenshot_3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Base Bank  Substances\Base Bank Substances Library.csproj">
+      <Project>{e19e0941-ac9d-4563-b90b-bd9cdd9e932d}</Project>
+      <Name>Base Bank Substances Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

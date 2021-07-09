@@ -1,4 +1,4 @@
-﻿using DZ_13_Banking_system.Bank_operations;
+﻿using BaseBankSubstances.Bank_operations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
     class TestBankingSystemCreation
     {

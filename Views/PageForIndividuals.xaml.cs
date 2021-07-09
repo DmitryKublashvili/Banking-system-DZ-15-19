@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
     /// <summary>
     /// Логика взаимодействия для PageForIndividuals.xaml

@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
     /// <summary>
     /// Логика взаимодействия для MonyTransferWindow.xaml

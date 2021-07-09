@@ -1,4 +1,4 @@
-﻿using DZ_13_Banking_system.Bank_operations;
+﻿using BaseBankSubstances.Bank_operations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,9 +11,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Shapes;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
-    class DataContextForMainWindow : INotifyPropertyChanged
+    public class DataContextForMainWindow : INotifyPropertyChanged
     {
         /// <summary>
         /// Конструктор класса
@@ -46,7 +46,11 @@ namespace DZ_13_Banking_system
             mainWindow.btn_Individuals.FontWeight = FontWeights.SemiBold;
 
             IsTestModeActivated = false;
+
+            Client.SelectedClientEvent += SetSelectedClient;
+                
         }
+
 
         #region////////////// Поля и свойства \\\\\\\\\\\\\
 
@@ -69,8 +73,6 @@ namespace DZ_13_Banking_system
         private PageForIndividuals pageForIndividuals;
 
         private PageForLegalEntity pageForLegalEntity;
-
-        private OperationJornalPage operationJornalPage;
 
         private Page currentPage;
         /// <summary>
@@ -418,6 +420,16 @@ namespace DZ_13_Banking_system
         #endregion
 
         #region///////////// Методы и события \\\\\\\\\\\\\
+
+        /// <summary>
+        /// Присваивает свойству SelectedClient ссылку на того клиента, который выбран в UI
+        /// </summary>
+        /// <param name="client"></param>
+        private void SetSelectedClient(Client client)
+        {
+            SelectedClient = client;
+        }
+
         /// <summary>
         /// Отменяет выделение жирным шрифтом любых пунктов главного меню
         /// </summary>

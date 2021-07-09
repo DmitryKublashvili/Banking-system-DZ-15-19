@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace DZ_13_Banking_system 
+namespace BaseBankSubstances 
 {
     class ClientRegistration : INotifyPropertyChanged
     {

@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace DZ_13_Banking_system.Properties
+namespace BaseBankSubstances.Properties
 {
     /// <summary>
     ///   Класс ресурсов со строгим типом для поиска локализованных строк и пр.

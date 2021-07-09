@@ -1,7 +1,7 @@
-﻿<Application x:Class="DZ_13_Banking_system.App"
+﻿<Application x:Class="BaseBankSubstances.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:DZ_13_Banking_system"
+             xmlns:local="clr-namespace:BaseBankSubstances"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
          

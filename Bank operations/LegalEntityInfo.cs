@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
 
-namespace DZ_13_Banking_system
+namespace BaseBankSubstances
 {
-    class LegalEntityInfo : INotifyPropertyChanged
+    public class LegalEntityInfo : INotifyPropertyChanged
     {
         /// <summary>
         /// Добавление новой транзакции в главный операционный журнал 

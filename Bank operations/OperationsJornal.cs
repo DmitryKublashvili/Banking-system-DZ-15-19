@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DZ_13_Banking_system.Bank_operations
+namespace BaseBankSubstances.Bank_operations
 {
     class OperationsJornal : INotifyPropertyChanged
     {
