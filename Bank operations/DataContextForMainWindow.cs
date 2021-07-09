@@ -1,4 +1,5 @@
 ﻿using BaseBankSubstances.Bank_operations;
+using DZ_13_Banking_system;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -151,9 +152,9 @@ namespace BaseBankSubstances
         }
 
 
-        public RelayCommand pageForLegalEntitysCommand;         // команда, запускающая алгоритм закрытия выбранного счета
+        public RelayCommand pageForLegalEntitysCommand;         // команда, открывающая страницу UI для работы с юридическими лицами
         /// <summary>
-        /// Команада, которая при нажатии на соответствующую кнопку вызывает алгоритм закрытия выбранного счета
+        /// Команада, открывающая страницу UI для работы с юридическими лицами
         /// </summary>
         public RelayCommand PageForLegalEntitysCommand
         {
@@ -362,6 +363,7 @@ namespace BaseBankSubstances
                           // создание экземпляа класса, обеспечивающего просмотр и редктирование информации о юр. лицах
                           LegalEntityInfo legalEntityInfo = new LegalEntityInfo(SelectedClient);
                       }
+
                   }));
             }
         }

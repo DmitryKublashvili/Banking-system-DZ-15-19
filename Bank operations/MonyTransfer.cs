@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DZ_13_Banking_system;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -46,6 +47,7 @@ namespace BaseBankSubstances
 
             MoneyTransferPage.DataContext = this;
         }
+
 
         /// <summary>
         /// Страница UI отвечающая за осуществление денежных переводов
@@ -210,12 +212,14 @@ namespace BaseBankSubstances
             }
         }
 
+
         /// <summary>
         /// Проверяет корректность заполнения формы
         /// </summary>
         /// <returns></returns>
         private bool Check()
         {
+
             if (Sender == null) { MessageBox.Show("Please, select the sender!"); return false; }
 
             if (Reciver == null) { MessageBox.Show("Please, select the reciver!"); return false; }
@@ -232,18 +236,23 @@ namespace BaseBankSubstances
                 return false;
             }
 
-            if (transferSum > Sender.ClientAccount.Balans)
+            try
             {
-                if (MessageBox.Show($"Insufficient funds in the account. \nThe amount of the current sender's account is {Sender.ClientAccount.Balans}.\n" +
-                    $"Confirming the debit of funds with the formation of arrears?\nSender: {Sender.Name} \n" +
-                    $"Reciver: {Reciver.Name}\nSum: {transferSum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return false;
+                if (transferSum > Sender.ClientAccount.Balans)
+                {
+                    throw new NotEnoughMoneyException($"Insufficient funds in the account. \nThe amount of the current sender's account is {Sender.ClientAccount.Balans}.\nTransfer inpossible.");
+                }
             }
-            else
+            catch (NotEnoughMoneyException e)
             {
-                if (MessageBox.Show($"Confirm the transfer of funds:\nSender: {Sender.Name} \n" +
-                    $"Reciver: {Reciver.Name} \nSum: {transferSum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
-                    return false;
+                MessageBox.Show(e.Message);
+                return false;
+            }
+
+            if (MessageBox.Show($"Confirm the transfer of funds:\nSender: {Sender.Name} \n" +
+                $"Reciver: {Reciver.Name} \nSum: {transferSum} ", "Question", MessageBoxButton.YesNo) == MessageBoxResult.No)
+            {
+                return false;
             }
 
             return true;
