@@ -56,7 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bank operations\OperationsJornal.cs" />
-    <Compile Include="NotEnoughMoneyException.cs" />
+    <Compile Include="Exceptions\NotEnoughMoneyException.cs" />
     <Compile Include="Views\OperationJornalPage.xaml.cs">
       <DependentUpon>OperationJornalPage.xaml</DependentUpon>
     </Compile>
