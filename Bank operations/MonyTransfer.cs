@@ -240,7 +240,11 @@ namespace BaseBankSubstances
             {
                 if (transferSum > Sender.ClientAccount.Balans)
                 {
-                    throw new NotEnoughMoneyException($"Insufficient funds in the account. \nThe amount of the current sender's account is {Sender.ClientAccount.Balans}.\nTransfer inpossible.");
+                    var summ = String.Format("{0:0.00}", Sender.ClientAccount.Balans);
+
+                    throw new NotEnoughMoneyException($"Insufficient funds in the account. \n" +
+                        $"The amount of the current sender's account is {summ}.\n" +
+                        $"Transfer inpossible.");
                 }
             }
             catch (NotEnoughMoneyException e)

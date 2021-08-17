@@ -20,7 +20,9 @@
                     VerticalAlignment="Stretch" Grid.Row="1" FontFamily="Artifakt Element" FontSize="13" >
             <TabItem Header="   Individuals   " Margin="-2,-2,-15.4,0.4" FontSize="14">
                 <Grid>
-                    <DataGrid x:Name="dg_Individuals" ItemsSource="{Binding IndividualsForUI}" SelectedItem="{Binding SelectedClient}"
+                    <DataGrid x:Name="dg_Individuals" 
+                              ItemsSource="{Binding IndividualsForUI}" 
+                              SelectedItem="{Binding SelectedClient}"
                              HorizontalAlignment="Stretch" AutoGenerateColumns="False" IsReadOnly="True"
                              Margin="5" VerticalAlignment="Stretch" Grid.Column="1" Grid.RowSpan="2" GridLinesVisibility="None" FontSize="13"  >
 
