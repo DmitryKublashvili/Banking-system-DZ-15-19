@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DZ-13 Banking system", "DZ-13 Banking system.csproj", "{CE4E175C-BC63-4D14-B0BC-F43A57249393}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base Bank Substances Library", "..\Base Bank  Substances\Base Bank Substances Library.csproj", "{E19E0941-AC9D-4563-B90B-BD9CDD9E932D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Base Bank Substances Library", "Base Bank  Substances\Base Bank Substances Library.csproj", "{E19E0941-AC9D-4563-B90B-BD9CDD9E932D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

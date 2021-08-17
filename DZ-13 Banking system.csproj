@@ -212,11 +212,10 @@
     <Resource Include="Views\Screenshot_3.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Base Bank  Substances\Base Bank Substances Library.csproj">
+    <ProjectReference Include="Base Bank  Substances\Base Bank Substances Library.csproj">
       <Project>{e19e0941-ac9d-4563-b90b-bd9cdd9e932d}</Project>
       <Name>Base Bank Substances Library</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
