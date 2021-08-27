@@ -160,7 +160,6 @@ namespace BaseBankSubstances
             return account;
         }
 
-
         /// <summary>
         /// Происходит при изменении привязанного свойства
         /// </summary>
@@ -174,7 +173,6 @@ namespace BaseBankSubstances
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
-
 
     }
 }

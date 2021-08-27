@@ -49,9 +49,7 @@ namespace BaseBankSubstances
             IsTestModeActivated = false;
 
             Client.SelectedClientEvent += SetSelectedClient;
-                
         }
-
 
         #region////////////// Поля и свойства \\\\\\\\\\\\\
 

@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bank Functions\Account.cs" />
-    <Compile Include="DataBase\DB_Connection.cs" />
+    <Compile Include="DataBase Interaction\DB_Connection.cs" />
+    <Compile Include="DataBase Interaction\DB_LegalEntities.cs" />
     <Compile Include="Сlient substances\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Bank Functions\BankSistem.cs" />

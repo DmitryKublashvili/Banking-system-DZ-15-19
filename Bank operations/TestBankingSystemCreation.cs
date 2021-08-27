@@ -1,4 +1,5 @@
-﻿using BaseBankSubstances.Bank_operations;
+﻿using Base_Bank__Substances.DataBase_Interaction;
+using BaseBankSubstances.Bank_operations;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,7 @@ namespace BaseBankSubstances
 
         private static ObservableCollection<LegalEntity> testLegalEntities;
 
+        public static event Action<Client> ClientCreate;
 
         /// <summary>
         /// Автоматически создает тестовую банковскую базу случайных клиентов  
@@ -118,7 +120,10 @@ namespace BaseBankSubstances
                 newClient.ClientCredit.SetCreditInterest(newClient);
                 newClient.ClientCredit.SetMonthlyInstallment();
             }
-            
+
+            //ClientCreate?.Invoke(newClient);   // вызов события для добавления клиента в базу данных
+            new DB_LegalEntities().InsertNewClient(newClient);
+
             return newClient;
         }
 

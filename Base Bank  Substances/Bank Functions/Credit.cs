@@ -34,7 +34,7 @@ namespace BaseBankSubstances
             int creditPeriod, string creditContractNumber, double creditInterest)
         {
             CreditAmount = creditAmount;
-            this.monthlyInstallment = monthlyInstallment;
+            this.MonthlyInstallment = monthlyInstallment;
             CreditAccountNum = creditAccountNum;
             CreditStartDate = creditStartDate;
             CreditPeriod = creditPeriod;
@@ -45,10 +45,7 @@ namespace BaseBankSubstances
         /// <summary>
         /// Конструтор по умолчанию
         /// </summary>
-        public Credit()
-        {
-
-        }
+        public Credit() { }
 
         /// <summary>
         /// стандартная процентная ставка по кредиту
@@ -68,7 +65,7 @@ namespace BaseBankSubstances
         /// <summary>
         /// Сумма ежемесячного возврата кредита
         /// </summary>
-        public decimal monthlyInstallment { get; set; }
+        public decimal MonthlyInstallment { get; set; }
 
         /// <summary>
         /// Номер кредитного счета
@@ -110,7 +107,7 @@ namespace BaseBankSubstances
         /// </summary>
         public void SetMonthlyInstallment()
         {
-            monthlyInstallment = CreditAmount / CreditPeriod;
+            MonthlyInstallment = CreditAmount / CreditPeriod;
         }
 
         /// <summary>
@@ -207,7 +204,7 @@ namespace BaseBankSubstances
             decimal sumOfInterest = client.ClientCredit.CreditAmount * (decimal)client.ClientCredit.CreditInterest / 12 / 100;
 
             // частичный возврат кредита
-            decimal partOfTheCredit = client.ClientCredit.monthlyInstallment;
+            decimal partOfTheCredit = client.ClientCredit.MonthlyInstallment;
 
             // общая сумма платежа
             decimal loanPayment = sumOfInterest + partOfTheCredit;
@@ -262,7 +259,6 @@ namespace BaseBankSubstances
             client.ClientCredit = new Credit();
         }
 
-
         /// <summary>
         /// Возвращает новый номер кредитного счета при оформлении кредита
         /// </summary>
@@ -271,7 +267,6 @@ namespace BaseBankSubstances
         {
             return (++BaseAccountNumber).ToString();
         }
-
 
         /// <summary>
         /// Реализация интерфейса ICloneable

@@ -16,7 +16,8 @@ namespace BaseBankSubstances
         /// <param name="streetName"></param>
         /// <param name="houseNumber"></param>
         /// <param name="apartmentNumber"></param>
-        public Address(string countryName, string cityName, string streetName, string houseNumber, string apartmentNumber)
+        public Address(string countryName, string cityName, string streetName, 
+                       string houseNumber, string apartmentNumber)
         {
             CountryName = countryName;
             CityName = cityName;

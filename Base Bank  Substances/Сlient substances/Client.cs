@@ -34,15 +34,12 @@ namespace BaseBankSubstances
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        protected Client()
-        {
-
-        }
+        protected Client() { }
 
         /// <summary>
-        /// Дата регистрации клиента
+        /// ID клиента
         /// </summary>
-        public DateTime RegistrationDate { get; set; }
+        public string ID { get; set; }
 
         private string name;
         /// <summary>
@@ -51,22 +48,17 @@ namespace BaseBankSubstances
         public string Name
         {
             get { return name; }
-            set 
-            { 
+            set
+            {
                 name = value;
                 OnPropertyChanged("Name");
             }
         }
 
         /// <summary>
-        /// ID клиента
+        /// Дата регистрации клиента
         /// </summary>
-        public string ID { get; set; }
-
-        /// <summary>
-        /// Адрес клиента
-        /// </summary>
-        public Address ClientAddress { get; set; }
+        public DateTime RegistrationDate { get; set; }
 
         /// <summary>
         /// Текущий счет клиента
@@ -77,6 +69,11 @@ namespace BaseBankSubstances
         /// Кредит клиента
         /// </summary>
         public Credit ClientCredit { get; set; }
+
+        /// <summary>
+        /// Адрес клиента
+        /// </summary>
+        public Address ClientAddress { get; set; }
 
         /// <summary>
         /// Список транзакций клиента

@@ -20,10 +20,7 @@ namespace BaseBankSubstances
         /// <summary>
         /// Конструктор по умолчанию
         /// </summary>
-        public LegalEntity()
-        {
-
-        }
+        public LegalEntity() { }
 
         /// <summary>
         /// Дата государственной регистрации юр.лица
